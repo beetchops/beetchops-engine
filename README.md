@@ -7,8 +7,8 @@
 3. `$ cmake -S . -B build`
 4. `$ cmake --build build`
 
-> Built executable `beetchops` is located in `./build/bin/`
+> Built executable `beetchops-engine` is located in `./build/bin/`
 
-### execute
+### run
 
-1. `$ ./build/bin/beetchops`
+1. `$ ./build/bin/beetchops-engine`
