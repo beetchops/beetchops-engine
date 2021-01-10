@@ -1,5 +1,9 @@
 # beetchops-engine
 
+### prerequisites
+
+1. `$ apt install g++ cmake`
+
 ### build
 
 1. `$ git clone https://github.com/beetchops/beetchops-engine`
