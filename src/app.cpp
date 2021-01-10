@@ -16,9 +16,15 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include <iostream>
+#include <spdlog/spdlog.h>
+
+#include <string>
+
+namespace Beetchops_engine {
+    static constexpr std::string_view log_label{"[beetchops-engine]:"};
+}
 
 int main() {
-    std::cout << "fo sho!" << std::endl;
+    spdlog::info("{} Started.", Beetchops_engine::log_label);
     return 0;
 }
