@@ -22,9 +22,62 @@
 
 namespace Beetchops_engine {
     static constexpr std::string_view log_label{"[beetchops-engine]:"};
+
+    void print_current_exception_with_nested(int level = 0)
+    {
+        try {
+            // re-throw current exception
+            throw;
+        }
+        catch (const std::exception& err) {
+            // it's std::exception, print it
+            spdlog::error("\t{}exception: {}", std::string(level, ' '), err.what());
+        }
+        catch(...) {
+            // it's an unknown exception, print message
+            spdlog::error("\t{}unknown exception", std::string(level, ' '));
+        }
+
+        try {
+            // re-throw current exception
+            throw;
+        }
+        catch (const std::nested_exception& nested) {
+            // it's std::nested_exception (meaning it in fact contains a nested exception)
+            try {
+                // re-throw nested exception
+                nested.rethrow_nested();
+            }
+            catch (...) {
+                // catch it and print it with its nested exceptions, if any
+                print_current_exception_with_nested(level + 1); // recursion
+            }
+        }
+        catch (...) {
+            //it's not std::nested_exception - do nothing - end recursion
+        }
+    }
+
+    static void exit_with_error(std::string msg)
+    {
+        spdlog::error("{} {}", log_label, msg);
+        print_current_exception_with_nested();
+        spdlog::error("{} Exitting...", log_label);
+        exit(1);
+    }
 }
 
-int main() {
+int main()
+try {
     spdlog::info("{} Started.", Beetchops_engine::log_label);
     return 0;
+}
+catch (const std::runtime_error& err) {
+    Beetchops_engine::exit_with_error("Runtime error occurred:");
+}
+catch (const std::exception& err) {
+    Beetchops_engine::exit_with_error("Error occurred:");
+}
+catch (...) {
+    Beetchops_engine::exit_with_error("Unknown error occurred.");
 }
