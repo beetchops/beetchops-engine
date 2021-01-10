@@ -10,7 +10,7 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/archive")
 
 find_package(spdlog REQUIRED)
 
-add_executable(beetchops-engine src/app.cpp)
+add_executable(beetchops-engine src/main.cpp)
 
 set_target_properties(
     beetchops-engine PROPERTIES
