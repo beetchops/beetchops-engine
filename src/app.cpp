@@ -18,6 +18,7 @@
 
 #include <spdlog/spdlog.h>
 
+#include <stdexcept>
 #include <string>
 
 namespace Beetchops_engine {
