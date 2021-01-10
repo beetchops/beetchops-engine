@@ -63,7 +63,7 @@ namespace Beetchops_engine {
     {
         spdlog::error("{} {}", log_label, msg);
         print_current_exception_with_nested();
-        spdlog::error("{} Exitting...", log_label);
+        spdlog::error("{} Exiting...", log_label);
         exit(1);
     }
 }
