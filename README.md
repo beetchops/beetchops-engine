@@ -3,11 +3,6 @@
 ### prerequisites
 
 1. `$ apt install g++ cmake`
-2. install [spdlog](https://github.com/gabime/spdlog) library: 
-    - `$ git clone https://github.com/gabime/spdlog.git`
-    - `$ cd spdlog`
-    - `$ cmake -S . -B build`
-    - `# cmake --build build --target install`
 
 ### build
 
