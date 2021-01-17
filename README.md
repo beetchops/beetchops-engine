@@ -1,6 +1,6 @@
 # beetchops-engine
 
-### prerequisites
+### prepare
 
 1. `$ apt install g++ cmake`
 
