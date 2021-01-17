@@ -2,7 +2,10 @@ cmake_minimum_required(VERSION 3.19)
 
 project(beetchops-engine VERSION 0.0.1)
 
-add_compile_options(-W -Wall -Werror)
+set(CMAKE_DISABLE_IN_SOURCE_BUILD ON)
+set(CMAKE_DISABLE_SOURCE_CHANGES ON)
+
+add_compile_options(-Wall -Wextra -Werror)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/bin")
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/lib")
