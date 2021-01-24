@@ -16,12 +16,16 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+#include "engine.hpp"
+
 #include <spdlog/spdlog.h>
 
 #include <stdexcept>
 #include <string>
+#include <thread>
+#include <unistd.h>
 
-namespace Beetchops_engine {
+namespace Beet_engn {
     static constexpr std::string_view log_label{"[beetchops-engine]:"};
 
     void print_current_exception_with_nested(int level = 0)
@@ -70,15 +74,22 @@ namespace Beetchops_engine {
 
 int main()
 try {
-    spdlog::info("{} Started.", Beetchops_engine::log_label);
+
+    Beet_engn::Engine engine;
+
+    std::thread engine_thread([&](){ engine.start(); });
+    sleep(2);
+    engine.stop();
+    engine_thread.join();
+
     return 0;
 }
 catch (const std::runtime_error& err) {
-    Beetchops_engine::exit_with_error("Runtime error occurred:");
+    Beet_engn::exit_with_error("Runtime error occurred:");
 }
 catch (const std::exception& err) {
-    Beetchops_engine::exit_with_error("Error occurred:");
+    Beet_engn::exit_with_error("Error occurred:");
 }
 catch (...) {
-    Beetchops_engine::exit_with_error("Unknown error occurred.");
+    Beet_engn::exit_with_error("Unknown error occurred.");
 }
