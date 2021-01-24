@@ -13,6 +13,10 @@
 
 > Built executable `beetchops-engine` is located in `./build/bin/`
 
+### test
+
+1. `$ cmake --build build --target test`
+
 ### run
 
 1. `$ ./build/bin/beetchops-engine`
