@@ -42,3 +42,8 @@ void Engine::stop()
 
     spdlog::info("{} Stopped.", log_label);
 }
+
+bool Engine::is_running()
+{
+    return _running;
+}

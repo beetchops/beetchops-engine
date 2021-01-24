@@ -27,9 +27,11 @@ namespace Beet_engn
         public:
             void start();
             void stop();
+
+            bool is_running();
         private:
             static constexpr std::string_view log_label{"[engine]"};
-            bool _running;
+            bool _running = false;
     };
 };
 
