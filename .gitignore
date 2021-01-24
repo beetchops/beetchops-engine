@@ -1,7 +1,9 @@
 # visual studio code
 .vscode/*
 
-# CMake
+# build
 build/*
+
+# trash after CMake in-source build attempt
 CMakeCache.txt
 CMakeFiles/*
