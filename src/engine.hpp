@@ -1,6 +1,6 @@
 /*
  *  Beetchops - real time audio sequencer
- *  Copyright (C) 2020 Anton Šefčík
+ *  Copyright (C) 2021 Anton Šefčík
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Affero General Public License as published
