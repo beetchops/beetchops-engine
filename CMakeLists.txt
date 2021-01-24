@@ -13,10 +13,7 @@ add_compile_options(-Wall -Wextra -Werror)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/bin")
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/lib")
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/archive")
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/lib")
 
 add_subdirectory(external/spdlog)
-
-add_executable(beetchops-engine src/main.cpp)
-
-target_link_libraries(beetchops-engine PRIVATE spdlog)
+add_subdirectory(src)
